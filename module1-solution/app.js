@@ -8,7 +8,7 @@ angular.module('LunchCheck', [])
 LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope) {
   $scope.lunchmenu=""
-  $scope.message="Hello"
+  $scope.message=""
   $scope.checkLunchMenu = function () {
         console.log('Check');
    //split $scope.lunchmenu if not empty
