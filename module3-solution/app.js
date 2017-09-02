@@ -13,7 +13,10 @@ function FoundItemsDirective() {
     scope: {
        found: '<',
       onRemove: '&'
-    }
+    },
+    controller: 'NarrowItDownController',
+    controllerAs: 'list',
+    bindToController: true
   };
   return ddo;
 }
