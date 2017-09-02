@@ -2,9 +2,22 @@
 'use strict';
 
 angular.module('NarrowItDownApp', [])
-.controller('NarrowItDownController',NarrowItDownController)
-.service('MenuSearchService',MenuSearchService)
-.directive('foundItemsDirective', FoundItemsDirective);
+.controller('NarrowItDownController', NarrowItDownController)
+.service('MenuSearchService', MenuSearchService)
+.directive('foundItems', FoundItemsDirective);
+
+
+function FoundItemsDirective() {
+  var ddo = {
+    templateUrl: 'menuItems.html',
+    scope: {
+       found: '<',
+      onRemove: '&'
+    }
+  };
+  return ddo;
+}
+
 
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController (MenuSearchService){
@@ -12,7 +25,7 @@ function NarrowItDownController (MenuSearchService){
  list.searchTerm = "" ;
  list.narrowItDown = function (){
    if (list.searchTerm === ""){
-     list.items = [] ;
+     list.found = [] ;
    }else {
      var promise = MenuSearchService.getMatchedMenuItems();
      promise.then(function (response) {
@@ -24,8 +37,8 @@ function NarrowItDownController (MenuSearchService){
            foundItems.push(result[i]);
         }
       }
-      list.items = foundItems;
-       console.log("listfound", list.items);
+      list.found = foundItems;
+       console.log("listfound", list.found);
        })
        .catch(function (error) {
          console.log("Something went terribly wrong.");
@@ -35,6 +48,13 @@ function NarrowItDownController (MenuSearchService){
  list.removeItem = function (itemIndex) {
     MenuSearchService.removeItem(itemIndex);
   };
+
+  list.foundInList = function () {
+    if (list.found.length === 0 ){
+      return true
+    }
+    return  false ;
+};
 
 }
 MenuSearchService.$inject = ['$http'];
@@ -52,28 +72,4 @@ service.removeItem = function (itemIndex) {
   };
 }
 
-function FoundItemsDirective() {
-  var ddo = {
-    templateUrl: 'menuItems.html',
-    scope: {
-       items: '<',
-      onRemove: '&'
-    },
-    controller: FoundItemsDirectiveController ,
-    controllerAs: 'list',
-    bindToController: true
-  };
-
-  return ddo;
-}
-
-function FoundItemsDirectiveController() {
-  var list = this;
-  list.foundInList = function () {
-    if (list.items.length === 0 ){
-      return true
-    }
-    return  false ;
-}
-}
 })();
