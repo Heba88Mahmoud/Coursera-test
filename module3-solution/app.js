@@ -50,7 +50,7 @@ function NarrowItDownController (MenuSearchService){
    }
  };
  list.removeItem = function (itemIndex) {
-    MenuSearchService.removeItem(itemIndex);
+    list.found.splice(itemIndex, 1);
   };
 
 }
@@ -64,9 +64,7 @@ function MenuSearchService($http){
   });
   return response;
 };
-service.removeItem = function (itemIndex) {
-    list.found.splice(itemIndex, 1);
-  };
+
 }
 
 })();
