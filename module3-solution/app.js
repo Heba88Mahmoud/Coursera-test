@@ -10,15 +10,24 @@ NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController (MenuSearchService){
  var list = this;
  list.searchTerm = "" ;
- //list.found = MenuSearchService.getMatchedMenuItems(list.searchTerm);
-var promise = MenuSearchService.getMatchedMenuItems();
-promise.then(function (response) {
-    list.found = response.data;
-  })
-  .catch(function (error) {
-    console.log("Something went terribly wrong.");
-  });
-
+ list.narrowItDown= function (){
+   var promise = MenuSearchService.getMatchedMenuItems();
+   promise.then(function (response) {
+    //   list.found = response.data;
+     var result = response.data;
+     var foundItems = [];
+     for (var i = 0; i < result.length; i++) {
+      var description = result[i].description;
+      if (description.toLowerCase().indexOf(list.searchTerm) !== -1) {
+        foundItems.push(result[i]);
+      }
+    }
+    list.found = foundItems;
+     })
+     .catch(function (error) {
+       console.log("Something went terribly wrong.");
+     });
+ }
 }
 MenuSearchService.$inject = ['$http'];
 function MenuSearchService($http){
