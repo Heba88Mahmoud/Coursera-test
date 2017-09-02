@@ -53,13 +53,6 @@ function NarrowItDownController (MenuSearchService){
     MenuSearchService.removeItem(itemIndex);
   };
 
-  list.foundInList = function () {
-    if (list.found.length === 0 ){
-      return true
-    }
-    return  false ;
-};
-
 }
 MenuSearchService.$inject = ['$http'];
 function MenuSearchService($http){
