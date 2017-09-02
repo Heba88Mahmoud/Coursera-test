@@ -31,7 +31,7 @@ function MenuSearchService($http){
   return response;
 };
 }
-
+FoundItemsDirective.$inject = ['NarrowItDownController'];
 function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'menuItems.html',
