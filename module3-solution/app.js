@@ -65,7 +65,7 @@ function MenuSearchService($http){
   return response;
 };
 service.removeItem = function (itemIndex) {
-    items.splice(itemIndex, 1);
+    list.found.splice(itemIndex, 1);
   };
 }
 
