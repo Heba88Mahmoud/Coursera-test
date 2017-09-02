@@ -11,23 +11,31 @@ function NarrowItDownController (MenuSearchService){
  var list = this;
  list.searchTerm = "" ;
  list.narrowItDown = function (){
-   var promise = MenuSearchService.getMatchedMenuItems();
-   promise.then(function (response) {
-    //   list.found = response.data;
-     var result = response.data;
-     var foundItems = [];
-     for (var i = 0; i < result.length; i++) {
-      var description = result[i].description;
-      if (description.toLowerCase().indexOf(list.searchTerm) !== -1) {
-        foundItems.push(result[i]);
+   if (list.searchTerm === ""){
+     list.items = [] ;
+   }else {
+     var promise = MenuSearchService.getMatchedMenuItems();
+     promise.then(function (response) {
+       var result = response.data.menu_items;
+       var foundItems = [];
+       for (var i = 0; i < result.length; i++) {
+        var description = result[i].description;
+        if (description.toLowerCase().indexOf(list.searchTerm) !== -1) {
+           foundItems.push(result[i]);
+        }
       }
-    }
-    list.found = foundItems;
-     })
-     .catch(function (error) {
-       console.log("Something went terribly wrong.");
-     });
- }
+      list.items = foundItems;
+       console.log("listfound", list.items);
+       })
+       .catch(function (error) {
+         console.log("Something went terribly wrong.");
+       });
+   }
+ };
+ list.removeItem = function (itemIndex) {
+    MenuSearchService.removeItem(itemIndex);
+  };
+
 }
 MenuSearchService.$inject = ['$http'];
 function MenuSearchService($http){
@@ -39,6 +47,9 @@ function MenuSearchService($http){
   });
   return response;
 };
+service.removeItem = function (itemIndex) {
+    items.splice(itemIndex, 1);
+  };
 }
 
 function FoundItemsDirective() {
@@ -47,10 +58,22 @@ function FoundItemsDirective() {
     scope: {
        items: '<',
       onRemove: '&'
-    }
+    },
+    controller: FoundItemsDirectiveController ,
+    controllerAs: 'list',
+    bindToController: true
   };
 
   return ddo;
 }
 
+function FoundItemsDirectiveController() {
+  var list = this;
+  list.foundInList = function () {
+    if (list.items.length === 0 ){
+      return true
+    }
+    return  false ;
+}
+}
 })();
