@@ -5,8 +5,8 @@ angular.module('MenuApp')
 .controller('categoriesListController', categoriesListController);
 
 
-categoriesListController.$inject = ['categories'];
-function categoriesListController(categories) {
+categoriesListController.$inject = ['MenuDataService','categories'];
+function categoriesListController(MenuDataService,categories) {
   var categoriesList = this;
   categoriesList.categories = categories;
 }
