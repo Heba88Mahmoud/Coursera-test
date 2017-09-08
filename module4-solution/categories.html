@@ -4,7 +4,7 @@
   <!-- <categories-list  categories="categoriesCtr.categoriesitems" > -->
   <div ng-controller='categoriesListController as categoriesCtr'>
   <ul>
-    <li ng-repeat="category in categoriesCtr.categoriesitems"
+    <li ng-repeat="category in categoriesCtr.categories"
         ui-sref="items({itemId: $index})">
        {{category.name}}
     </li>
