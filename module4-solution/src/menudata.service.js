@@ -14,8 +14,13 @@ function MenuDataService($http, ApiBasePath){
     var response = $http({
     method: "GET",
     url: (ApiBasePath + "/categories.json")
-  });
-  return response;
+  }).then(function(response){
+      var items = response.data;
+      return items;
+    }).catch(function(error){
+      console.log(error);
+    });
+    return response;
 };
 
 service.getItemsForCategory = function (categoryShortName) {
@@ -25,9 +30,13 @@ service.getItemsForCategory = function (categoryShortName) {
      params: {
        category: categoryShortName
      }
-   });
-
-   return response;
+   }).then(function(response){
+      var items = response.data;
+      return items;
+    }).catch(function(error){
+      console.log(error);
+    });
+    return response;
  };
 
 
