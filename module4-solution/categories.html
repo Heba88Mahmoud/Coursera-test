@@ -2,11 +2,13 @@
   <a  ui-sref="home">Home</a>
   <h3>Categories List</h3>
   <!-- <categories-list  categories="categoriesCtr.categoriesitems" > -->
+  <div ng-controller='categoriesListController as categoriesCtr'>
   <ul>
     <li ng-repeat="category in categoriesCtr.categoriesitems"
         ui-sref="items({itemId: $index})">
        {{category.name}}
     </li>
   </ul>
+</div>
 <!-- </categories-list> -->
 <ui-view></ui-view>
