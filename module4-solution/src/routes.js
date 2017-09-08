@@ -28,7 +28,7 @@ function RoutesConfig($stateProvider,$urlRouterProvider){
                params: {
                  categoryShortName: null
                },
-               templateUrl: 'items.html'
+               templateUrl: 'items.html' ,
                controller: 'itemsListController as itemsList',
                resolve: {
                  items: ['MenuDataService', '$stateParams', function (MenuDataService ,$stateParams) {
