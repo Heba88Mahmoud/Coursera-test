@@ -1,6 +1,9 @@
+<a  ui-serf="home" >Home</a> &lt; <span>Categories</span>
+<h3>Categories List</h3>
 <ul>
-  <li ng-repeat="category in categoriesList.categories"
+  <li ng-repeat="category in categories.categories"
       ui-sref="items({itemId: $index})">
      {{ category.name }}
   </li>
 </ul>
+<ui-view></ui-view>
