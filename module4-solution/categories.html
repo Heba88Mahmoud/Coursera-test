@@ -1,12 +1,12 @@
 
   <a  ui-serf="home">Home</a>
   <h3>Categories List</h3>
-  <categories-data categories="categoriesCtr.categoriesitems" >
+  <!-- <categories-list  categories="categoriesCtr.categoriesitems" > -->
   <ul>
-    <li ng-repeat="category in $ctrl.categories"
+    <li ng-repeat="category in categoriesCtr.categoriesitems"
         ui-sref="items({itemId: $index})">
        {{category.name}}
     </li>
   </ul>
-</categories-data>
+<!-- </categories-list> -->
 <ui-view></ui-view>
