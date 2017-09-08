@@ -1,7 +1,7 @@
 <a  ui-serf="home" >Home</a> &lt; <span>Categories</span>
 <h3>Categories List</h3>
 <ul>
-  <li ng-repeat="category in categories.categories"
+  <li ng-repeat="category in categoriesCtr.categories"
       ui-sref="items({itemId: $index})">
      {{ category.name }}
   </li>

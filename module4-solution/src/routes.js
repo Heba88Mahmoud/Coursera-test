@@ -16,7 +16,7 @@ function RoutesConfig($stateProvider,$urlRouterProvider){
     .state('categories',{
               url:'/categories',
               templateUrl: 'categories.html',
-              controller: 'categoriesListController as categories',
+              controller: 'categoriesListController as categoriesCtr',
               resolve: {
                 categories: ['MenuDataService', function (MenuDataService) {
                 return MenuDataService.getAllCategories();
