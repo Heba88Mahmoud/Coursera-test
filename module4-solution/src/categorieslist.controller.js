@@ -5,10 +5,10 @@ angular.module('MenuApp')
 .controller('categoriesListController', categoriesListController);
 
 
-categoriesListController.$inject = ['MenuDataService','categoriesitems'];
-function categoriesListController(MenuDataService,categoriesitems) {
+categoriesListController.$inject = ['MenuDataService','items'];
+function categoriesListController(MenuDataService,items) {
   var categoriesListController = this;
-  categoriesListController.categories = categoriesitems;
+  categoriesListController.categories = items;
 }
 
 })();
