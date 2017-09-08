@@ -11,11 +11,11 @@ function RoutesConfig($stateProvider,$urlRouterProvider){
     // Home page
     .state('home',{
              url:'/' ,
-             templateUrl: '/home.html'
+             templateUrl: 'home.html'
      })
     .state('categories',{
               url:'/categories',
-              templateUrl: '/categories.html',
+              templateUrl: 'categories.html',
               controller: 'categoriesListController as categoriesList',
               resolve: {
                 categories: ['MenuDataService', function (MenuDataService) {
