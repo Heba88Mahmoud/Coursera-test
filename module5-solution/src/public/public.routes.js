@@ -46,6 +46,17 @@ function routeConfig ($stateProvider) {
       templateUrl: 'src/public/sign-up/signup.html',
       controller: 'SignupController',
       controllerAs: 'signupCtrl'
-    });
+    })
+    .state('public.myinfo', {
+     url: '/myinfo',
+     templateUrl: 'src/public/my-info/myinfo.html',
+     controller: 'InfoController',
+     controllerAs: 'infoCtrl',
+     resolve: {
+       userInfo: ['MenuService', function (MenuService) {
+         return MenuService.getUser();
+       }]
+     }
+   });
 }
 })();

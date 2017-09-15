@@ -9,7 +9,7 @@ function SignupController(MenuService) {
   var $ctrl = this;
   $ctrl.success = false;
   $ctrl.error = false;
-  
+
   $ctrl.submit = function() {
    MenuService.getMenuItem($ctrl.user.menuno).then(function (response) {
      $ctrl.user.menuno = response.data;
