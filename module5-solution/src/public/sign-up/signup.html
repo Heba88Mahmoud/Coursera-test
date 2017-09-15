@@ -1,8 +1,10 @@
 <div ng-controller="SignupController as signupCtrl>
   <h1>Sign up for newsletter of resturant</h1>
-  <div>
-    <span ng-if="signupCtrl.success" >Your information has been saved.</span>
-    <span ng-if="signupCtrl.error">No such menu number exists.</span>
+  <div ng-if="signupCtrl.success">
+    <span>Your information has been saved.</span>
+  </div>
+  <div ng-if="signupCtrl.error">
+  <span>No such menu number exists.</span>
   </div>
 <fieldset>
    <legend>Registration</legend>
@@ -62,7 +64,7 @@
        ng-disabled="regForm.$invalid"
        ng-click="signupCtrl.submit()">Submit</button>
 
-      
+
    </form>
  </fieldset>
  </div>
