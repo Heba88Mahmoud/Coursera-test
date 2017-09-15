@@ -4,11 +4,24 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-SignupController.$inject = ['user','shortname'];
-function SignupController(user,shortname) {
+SignupController.$inject = ['MenuService'];
+function SignupController(MenuService) {
   var $ctrl = this;
-  $ctrl.user = user;
-  $ctrl.menuno=shortname;
+
+  $ctrl.submit = function() {
+   MenuService.getMenuItem($ctrl.user.menuno).then(function (response) {
+     $ctrl.user.menuno = response.data;
+     MenuService.setUser($ctrl.user);
+     $ctrl.success = true;
+     $ctrl.error = false;
+
+   }, function (response) {
+     $ctrl.success = false;
+     $ctrl.error = true;
+   });
+ };
+
+
 }
 
 })();

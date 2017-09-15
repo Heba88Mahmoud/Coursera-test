@@ -29,12 +29,18 @@ function MenuService($http, ApiPath) {
 
   service.getMenuItem = function (shortname) {
 
-    return $http.get(ApiPath + '/menu_items/shortname', config).then(function (response) {
+    return $http.get(ApiPath +'/menu_items/'+ shortname +'.json', config).then(function (response) {
       return response.data;
     });
   };
 
+  service.setUser = function (user) {
+   service.user = user;
+ };
 
+ service.getUser = function () {
+   return service.user;
+ };
 
 }
 
