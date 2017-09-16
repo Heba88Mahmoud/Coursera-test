@@ -14,14 +14,13 @@
      <label for="firstname">First name</label>
      <input type="text" name="firstname" placeholder="Pick a firstname"
        ng-model="signupCtrl.user.firstname"
-       required
-       minlength="4"
-       ng-maxlength="10">
+       required>
 
        <span
          ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
          Firstname is required
        </span>
+     </br>
       </div>
      <div>
        <label for="lastname">Last name</label>
@@ -32,6 +31,7 @@
            ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
            Lastname is required
          </span>
+          </br>
        </div>
 <div>
      <label for="email">Email</label>
@@ -41,7 +41,8 @@
        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
          Must be a valid email address: handle@domain format
        </span>
-       <br>
+        </br>
+
 </div>
     <div>
      <label for="phone">Phone</label>
@@ -51,12 +52,12 @@
        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
          Phone must be in the format ###-###-####.
        </span>
-       <br>
+        </br>
 </div>
        <label for="menuno">Menu No</label>
        <input type="text" name="menuno" placeholder="Short Name"
          ng-model="signupCtrl.menuno">
-       <br>
+        </br>
 
      <button
        ng-disabled="regForm.$invalid"
