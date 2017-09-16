@@ -19,31 +19,20 @@
        ng-maxlength="10">
 
        <span
-         ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
-         Firstname must be at least 4 characters long
+         ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
+         Firstname is required
        </span>
-       <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
-         Firstname must not be longer than 10 characters
-       </span>
-       <br>
-</div>
+      </div>
      <div>
        <label for="lastname">Last name</label>
        <input type="text" name="lastname" placeholder="Pick a lastname"
          ng-model="signupCtrl.user.lastname"
-         required
-         minlength="4"
-         ng-maxlength="10">
-
+         required>
          <span
-           ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
-           Lastname must be at least 4 characters long
+           ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
+           Lastname is required
          </span>
-         <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
-           Lastname must not be longer than 10 characters
-         </span>
-         <br>
-</div>
+       </div>
 <div>
      <label for="email">Email</label>
      <input type="email" name="email" placeholder="Email"
