@@ -10,6 +10,8 @@
    <legend>Registration</legend>
    <form name='regForm' novalidate>
 
+<div>
+     <label for="firstname">First name</label>
      <input type="text" name="firstname" placeholder="Pick a firstname"
        ng-model="signupCtrl.user.firstname"
        required
@@ -24,7 +26,9 @@
          Firstname must not be longer than 10 characters
        </span>
        <br>
-
+</div>
+     <div>
+       <label for="lastname">Last name</label>
        <input type="text" name="lastname" placeholder="Pick a lastname"
          ng-model="signupCtrl.user.lastname"
          required
@@ -39,7 +43,9 @@
            Lastname must not be longer than 10 characters
          </span>
          <br>
-
+</div>
+<div>
+     <label for="email">Email</label>
      <input type="email" name="email" placeholder="Email"
        ng-model="signupCtrl.user.email"
        required>
@@ -47,7 +53,9 @@
          Must be a valid email address: handle@domain format
        </span>
        <br>
-
+</div>
+    <div>
+     <label for="phone">Phone</label>
      <input type="text" name="phone" placeholder="Phone ###-###-####"
        ng-model="signupCtrl.user.phone"
        pattern="(\d{3})-(\d{3})-(\d{4})">
@@ -55,7 +63,8 @@
          Phone must be in the format ###-###-####.
        </span>
        <br>
-
+</div>
+       <label for="menuno">Menu No</label>
        <input type="text" name="menuno" placeholder="Short Name"
          ng-model="signupCtrl.menuno">
        <br>
