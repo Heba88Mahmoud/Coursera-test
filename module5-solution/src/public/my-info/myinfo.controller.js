@@ -9,5 +9,4 @@ function InfoController(MenuService) {
   var $ctrl = this;
   $ctrl.user = MenuService.getUser();
 }
-
 })();
