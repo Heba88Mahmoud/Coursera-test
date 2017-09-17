@@ -17,13 +17,11 @@ function SignupController(MenuService) {
      MenuService.setUser($ctrl.user);
      $ctrl.success = true;
      $ctrl.error = false;
-      return response.data;
-   }.catch(function(error) {
-          console.log("error access short name "+ctrl.user.menuno);
-          $ctrl.success = true;
-          $ctrl.error = false;
-          return error;
-      });
+
+   }, function (response) {
+     $ctrl.success = false;
+     $ctrl.error = true;
+   });
  };
 
 
