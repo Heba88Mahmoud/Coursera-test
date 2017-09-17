@@ -40,6 +40,7 @@ function MenuService($http, ApiPath) {
  };
 
  service.getUser = function () {
+   console.log("getting user:",service.user);
    return service.user;
  };
 
