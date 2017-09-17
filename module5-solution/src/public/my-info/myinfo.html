@@ -1,6 +1,6 @@
 <ui-view>
 <div ng-controller="InfoController as infoCtr">
-<div ng-hide="infoCtr.user.firstname==' '" >
+<div ng-hide="infoCtr.user.firstname ==' '" >
 <p>First Name: {{infoCtr.user.firstname}}</p>
 <p>Last Name:{{infoCtr.user.lastname}}</p>
 <p>Email:{{infoCtr.user.email}}</p>
@@ -9,7 +9,7 @@
 
 </div>
 
-<div ng-if="infoCtr.user.firstname==''">
+<div ng-if="infoCtr.user.firstname ==''">
   Not Signed Up Yet.
   <a ur-sref="public.signup">Sign up Now!</a>
 </div>
