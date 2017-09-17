@@ -4,7 +4,7 @@
 angular.module('public')
 .controller('InfoController', InfoController);
 
-MyInfoController.$inject = ['userInfo'];
+InfoController.$inject = ['userInfo'];
 function InfoController(userInfo) {
   var $infoCtrl = this;
   $infoCtrl.user = userInfo;
