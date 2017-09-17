@@ -12,8 +12,8 @@ function SignupController(MenuService) {
 
   $ctrl.submit = function() {
    MenuService.getMenuItem($ctrl.user.menuno).then(function (response) {
-     $ctrl.user.itemname= response.data.name;
-     $ctrl.user.description= response.data.description;
+     $ctrl.user.itemname= response.name;
+     $ctrl.user.description= response.description;
      MenuService.setUser($ctrl.user);
      $ctrl.success = true;
      $ctrl.error = false;
