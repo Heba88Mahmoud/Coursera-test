@@ -54,7 +54,7 @@
      <input type="text" name="phone" placeholder="Phone ###-###-####"
        ng-model="signupCtrl.user.phone"
        pattern="(\d{3})-(\d{3})-(\d{4})"
-       class="ng-pristine ng-valid ng-empty ng-valid-pattern ng-touched"
+       class="ng-pristine ng-invalid ng-empty ng-invalid-pattern ng-touched"
        >
        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
          Phone must be in the format ###-###-####.
