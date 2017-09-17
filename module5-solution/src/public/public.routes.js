@@ -51,13 +51,7 @@ function routeConfig ($stateProvider) {
      url: '/myinfo',
      templateUrl: 'src/public/my-info/myinfo.html',
      controller: 'InfoController',
-     controllerAs: 'infoCtrl',
-     resolve: {
-       info:['MenuService', function (MenuService) {
-         console.log("getting user in state:",MenuService.getUser());
-         return MenuService.getUser();
-       }]
-     }
+     controllerAs: 'infoCtrl'
    });
 }
 })();
