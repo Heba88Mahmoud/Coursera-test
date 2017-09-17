@@ -1,6 +1,6 @@
 <ui-view>
 <div ng-controller="InfoController as infoCtrl">
-<div  ng-if="!equals({}, infoCtrl.user)" >
+<div  ng-if="infoCtrl.user.firstname !== undefined" >
 <p>First Name: {{infoCtrl.user.firstname}}</p>
 <p>Last Name:{{infoCtrl.user.lastname}}</p>
 <p>Email:{{infoCtrl.user.email}}</p>
@@ -12,7 +12,7 @@
 <img class="img-responsive" width="250" height="150" ng-src="https://heba-coursera-project.herokuapp.com/images/"+"infoCtrl.user.menuno"+".jpg">
 </div>
 
-<div ng-if="equals({}, infoCtrl.user)">
+<div ng-if="infoCtrl.user.firstname === undefined">
   Not Signed Up Yet.
   <a ui-sref="public.signup">Sign up Now!</a>
 </div>
