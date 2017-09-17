@@ -12,15 +12,18 @@ function SignupController(MenuService) {
 
   $ctrl.submit = function() {
    MenuService.getMenuItem($ctrl.user.menuno).then(function (response) {
-     $ctrl.user.menuno = response.data;
+     $ctrl.user.itemname= response.data.name;
+     $ctrl.user.description= response.data.description;
      MenuService.setUser($ctrl.user);
      $ctrl.success = true;
      $ctrl.error = false;
-
-   }, function (response) {
-     $ctrl.success = false;
-     $ctrl.error = true;
-   });
+      return response.data;
+   }.catch(function(error) {
+          console.log("error access short name "+ctrl.user.menuno);
+          $ctrl.success = true;
+          $ctrl.error = false;
+          return error;
+      });
  };
 
 
