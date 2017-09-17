@@ -8,13 +8,14 @@
   </div>
 <fieldset>
    <legend>Registration</legend>
-   <form name='regForm' novalidate>
+  <form name="regForm" style="color: white" novalidate="" class="ng-invalid ng-invalid-required ng-valid-email ng-valid-pattern ng-dirty ng-valid-parse">
 
 <div>
      <label for="firstname">First name</label>
      <input type="text" name="firstname" placeholder="Pick a firstname"
        ng-model="signupCtrl.user.firstname"
-       required>
+       required
+        class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched" >
 
        <span
          ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
@@ -26,7 +27,8 @@
        <label for="lastname">Last name</label>
        <input type="text" name="lastname" placeholder="Pick a lastname"
          ng-model="signupCtrl.user.lastname"
-         required>
+         required
+          class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched">
          <span
            ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
            Lastname is required
@@ -37,7 +39,8 @@
      <label for="email">Email</label>
      <input type="email" name="email" placeholder="Email"
        ng-model="signupCtrl.user.email"
-       required>
+       required
+       class="ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched">
        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
          Must be a valid email address: handle@domain format
        </span>
@@ -48,7 +51,9 @@
      <label for="phone">Phone</label>
      <input type="text" name="phone" placeholder="Phone ###-###-####"
        ng-model="signupCtrl.user.phone"
-       pattern="(\d{3})-(\d{3})-(\d{4})">
+       pattern="(\d{3})-(\d{3})-(\d{4})"
+       class="ng-pristine ng-valid ng-empty ng-valid-pattern ng-touched"
+       >
        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
          Phone must be in the format ###-###-####.
        </span>
